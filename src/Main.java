@@ -5,26 +5,29 @@ import static java.lang.Integer.parseInt;
 public class Main {
 
     public static void main(String[] args) {
-        Logger log = Logger.get();
+        Logger logger = Logger.get();
+        logger.log("Запускаем программу");
         Scanner in = new Scanner(System.in);
-        System.out.println("Введи два числа через пробел: размер списка N и верхнюю границу значений элементов в списке M.");
-        String input = in.nextLine();
-        String[] split = input.split(" ");
-        int n = parseInt(split[0]);
-        int m = parseInt(split[1]);
-//        log.append(split[0] + split[1]);
+        System.out.println("Введи два числа поочереди: размер списка N и верхнюю границу значений элементов в списке M.");
+        int n = in.nextInt();
+        logger.log("Пользователь ввел размер списка: " + n);
+        int m = in.nextInt();
+        logger.log("Пользователь ввел верхнюю границу значений: " + m);
         System.out.println("Введите число f для фильтрации списка");
         ArrayList<Integer> list = new ArrayList<>();
         Random rand = new Random();
         for (int i = 0; i < n; i++) {
             list.add(rand.nextInt(0, m));
         }
+        logger.log("Сгенерирован список чисел " + list);
         int f = in.nextInt();
+        logger.log("Пользователь ввел порог фильтрации списка: " + f);
         in.close();
         Filter filter = new Filter(f);
         List<Integer> filteredList = filter.filterOut(list);
-        System.out.println(Arrays.toString(filteredList.toArray()));
-        System.out.println(log);
+        logger.log("Результат фильтрации: " + filteredList);
+        logger.log("Завершаем программу");
+        System.out.println(logger);
 
     }
 }

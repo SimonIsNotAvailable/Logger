@@ -10,6 +10,7 @@ public class Filter {
 
     public static List<Integer> filterOut(List<Integer> list){
         Logger logger = Logger.get();
+        logger.log("Запускаем фильтрацию");
         list.removeIf(s -> s < f);
         return list;
     }

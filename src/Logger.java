@@ -1,8 +1,14 @@
+import java.util.Calendar;
+import java.util.Date;
+
 public class Logger {
     private static Logger logger = null;
-    private long start;
+    private Date start;
+    private StringBuilder sb = new StringBuilder();
+    private int msgNumber = 0;
     private Logger() {
-        this.start = System.currentTimeMillis();
+
+        this.start = new Date();
     }
     public static Logger get() {
         if( logger == null) {
@@ -10,10 +16,12 @@ public class Logger {
         }
         return logger;
     }
-    public void append(String toAppend) {
-        logger.append(toAppend);
+    public void log(String msg) {
+        sb.append("[ " + start +
+                " " + msgNumber++ +
+                " ] " + msg + "\n");
     }
     public String toString(){
-        return "Start time :" + start + " ";
+        return sb.toString();
     }
 }
