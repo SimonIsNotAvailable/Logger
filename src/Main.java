@@ -14,6 +14,7 @@ public class Main {
         int m = in.nextInt();
         logger.log("Пользователь ввел верхнюю границу значений: " + m);
         System.out.println("Введите число f для фильтрации списка");
+        logger.log("Создаём и генерируем список ");
         ArrayList<Integer> list = new ArrayList<>();
         Random rand = new Random();
         for (int i = 0; i < n; i++) {
@@ -26,7 +27,7 @@ public class Main {
         Filter filter = new Filter(f);
         List<Integer> filteredList = filter.filterOut(list);
         logger.log("Результат фильтрации: " + filteredList);
-        logger.log("Завершаем программу");
+        logger.log("Завершаем программу и выводим на экран лог");
         System.out.println(logger);
 
     }
