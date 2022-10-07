@@ -9,6 +9,7 @@ public class Main {
         logger.log("Запускаем программу");
         Scanner in = new Scanner(System.in);
         System.out.println("Введи два числа поочереди: размер списка N и верхнюю границу значений элементов в списке M.");
+        logger.log("Просим пользователя ввести исходные значения");
         int n = in.nextInt();
         logger.log("Пользователь ввел размер списка: " + n);
         int m = in.nextInt();
